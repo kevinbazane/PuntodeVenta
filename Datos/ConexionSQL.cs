@@ -72,5 +72,24 @@ namespace Datos
             return flag;
         }
 
+        public string consultaFactura()
+        {
+            con.Open();
+            string query = "select(select distinct top 1 numfactura from Facturacion order by numfactura desc)+1 as numfactura";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader reg = cmd.ExecuteReader();
+
+            if (reg.Read())
+            {
+                return reg["numfactura"].ToString();
+            }
+            else
+            {
+                return "Null";
+            }
+
+            con.Close();
+        }
+
     }
 }

@@ -31,16 +31,20 @@
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.Archivo = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirFactura = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_menu_imp_venta = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_menu_descuento = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btn_Menu_Usuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Menu_Inventario = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_numFactura = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,11 +52,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txt_codigo_producto = new System.Windows.Forms.TextBox();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
+            this.txt_impuesto_venta = new System.Windows.Forms.TextBox();
+            this.txt_descuento = new System.Windows.Forms.TextBox();
+            this.btn_AgregarProducto = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,9 +82,42 @@
             // 
             // abrirFactura
             // 
+            this.abrirFactura.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
             this.abrirFactura.Name = "abrirFactura";
-            this.abrirFactura.Size = new System.Drawing.Size(142, 22);
-            this.abrirFactura.Text = "Abrir Factura";
+            this.abrirFactura.Size = new System.Drawing.Size(198, 22);
+            this.abrirFactura.Text = "Imp. Venta y Descuento";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txt_menu_imp_venta});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem1.Text = "Imp.Venta";
+            // 
+            // txt_menu_imp_venta
+            // 
+            this.txt_menu_imp_venta.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_menu_imp_venta.Name = "txt_menu_imp_venta";
+            this.txt_menu_imp_venta.Size = new System.Drawing.Size(100, 23);
+            this.txt_menu_imp_venta.Text = "9";
+            this.txt_menu_imp_venta.TextChanged += new System.EventHandler(this.ImpVenta);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txt_menu_descuento});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem2.Text = "Descuento";
+            // 
+            // txt_menu_descuento
+            // 
+            this.txt_menu_descuento.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_menu_descuento.Name = "txt_menu_descuento";
+            this.txt_menu_descuento.Size = new System.Drawing.Size(100, 23);
             // 
             // menuStrip1
             // 
@@ -117,12 +154,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "N° Factura";
             // 
-            // textBox1
+            // txt_numFactura
             // 
-            this.textBox1.Location = new System.Drawing.Point(235, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txt_numFactura.Location = new System.Drawing.Point(235, 40);
+            this.txt_numFactura.Name = "txt_numFactura";
+            this.txt_numFactura.Size = new System.Drawing.Size(100, 20);
+            this.txt_numFactura.TabIndex = 3;
             // 
             // dataGridView1
             // 
@@ -157,12 +194,12 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Codigo Cliente";
             // 
-            // textBox3
+            // txt_codigo
             // 
-            this.textBox3.Location = new System.Drawing.Point(26, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.txt_codigo.Location = new System.Drawing.Point(26, 123);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.Size = new System.Drawing.Size(100, 20);
+            this.txt_codigo.TabIndex = 8;
             // 
             // button1
             // 
@@ -227,42 +264,43 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Cantidad";
             // 
-            // textBox4
+            // txt_codigo_producto
             // 
-            this.textBox4.Location = new System.Drawing.Point(443, 334);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 16;
+            this.txt_codigo_producto.Location = new System.Drawing.Point(443, 334);
+            this.txt_codigo_producto.Name = "txt_codigo_producto";
+            this.txt_codigo_producto.Size = new System.Drawing.Size(100, 20);
+            this.txt_codigo_producto.TabIndex = 16;
             // 
-            // textBox5
+            // txt_cantidad
             // 
-            this.textBox5.Location = new System.Drawing.Point(565, 334);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 17;
+            this.txt_cantidad.Location = new System.Drawing.Point(565, 334);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(100, 20);
+            this.txt_cantidad.TabIndex = 17;
             // 
-            // textBox6
+            // txt_impuesto_venta
             // 
-            this.textBox6.Location = new System.Drawing.Point(341, 315);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(61, 20);
-            this.textBox6.TabIndex = 18;
+            this.txt_impuesto_venta.Location = new System.Drawing.Point(341, 315);
+            this.txt_impuesto_venta.Name = "txt_impuesto_venta";
+            this.txt_impuesto_venta.Size = new System.Drawing.Size(61, 20);
+            this.txt_impuesto_venta.TabIndex = 18;
             // 
-            // textBox7
+            // txt_descuento
             // 
-            this.textBox7.Location = new System.Drawing.Point(341, 341);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(61, 20);
-            this.textBox7.TabIndex = 19;
+            this.txt_descuento.Location = new System.Drawing.Point(341, 341);
+            this.txt_descuento.Name = "txt_descuento";
+            this.txt_descuento.Size = new System.Drawing.Size(61, 20);
+            this.txt_descuento.TabIndex = 19;
             // 
-            // button2
+            // btn_AgregarProducto
             // 
-            this.button2.Location = new System.Drawing.Point(443, 371);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 47);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Agregar Producto";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_AgregarProducto.Location = new System.Drawing.Point(443, 371);
+            this.btn_AgregarProducto.Name = "btn_AgregarProducto";
+            this.btn_AgregarProducto.Size = new System.Drawing.Size(222, 47);
+            this.btn_AgregarProducto.TabIndex = 20;
+            this.btn_AgregarProducto.Text = "Agregar Producto";
+            this.btn_AgregarProducto.UseVisualStyleBackColor = true;
+            this.btn_AgregarProducto.Click += new System.EventHandler(this.btn_AgregarProducto_Click);
             // 
             // button3
             // 
@@ -279,11 +317,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 471);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btn_AgregarProducto);
+            this.Controls.Add(this.txt_descuento);
+            this.Controls.Add(this.txt_impuesto_venta);
+            this.Controls.Add(this.txt_cantidad);
+            this.Controls.Add(this.txt_codigo_producto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -291,12 +329,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_codigo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_numFactura);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Cerrar);
             this.Controls.Add(this.menuStrip1);
@@ -320,12 +358,12 @@
         private System.Windows.Forms.ToolStripMenuItem btn_Menu_Usuario;
         private System.Windows.Forms.ToolStripMenuItem btn_Menu_Inventario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_numFactura;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -333,11 +371,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txt_codigo_producto;
+        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.TextBox txt_impuesto_venta;
+        private System.Windows.Forms.TextBox txt_descuento;
+        private System.Windows.Forms.Button btn_AgregarProducto;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripTextBox txt_menu_imp_venta;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripTextBox txt_menu_descuento;
     }
 }

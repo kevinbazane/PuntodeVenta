@@ -39,5 +39,10 @@ namespace Negocios
         {
             return cn.EliminarUsuario(dni);
         }
+
+        public string ConsultaFactura()
+        {
+            return cn.consultaFactura();
+        }
     }
 }
